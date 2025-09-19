@@ -1,0 +1,19 @@
+services:
+  server:
+    image: typesense/typesense:${TYPESENSE_VERSION}
+    entrypoint: sh -c "/opt/typesense-server --data-dir /data --api-key=${API_KEY} --enable-cors"
+    ports:
+      - "8108:8108"
+    volumes:
+      - poptape_search_data:/data
+    networks:
+      - poptape
+
+networks:
+  poptape:
+    external: true
+
+volumes:
+  poptape_search_data:
+    name: poptape_search_data
+    driver: local
