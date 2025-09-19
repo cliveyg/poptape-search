@@ -16,4 +16,3 @@ networks:
 volumes:
   poptape_search_data:
     name: poptape_search_data
-    #driver: local
